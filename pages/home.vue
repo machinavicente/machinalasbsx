@@ -7,6 +7,7 @@ interface simuladores {
   enlace: string
   categoria: string
   asignatura: string
+  descripcion_del_simulador: string
 }
 
 // Obtén el cliente Supabase con el tipo correcto
@@ -54,7 +55,7 @@ async function cargarSimuladores() {
     simuladores.value = data || [];
 
   } catch (err) {
-    error.value = err instanceof Error ? err.message : 'Error desconocido';
+    error.value = err instanceof Error ? err.message : 'Error de Conexion, Verifique e intente de nuevo  ';
     console.error('Error completo:', err);
   } finally {
     isLoading.value = false;
@@ -127,8 +128,8 @@ const filteredSimuladores = computed(() => {
             <span class="badge category-badge mb-3">{{ sim.categoria }}</span>
             <h5 class="card-title">{{ sim.nombre_del_simulador }}</h5>
             <hr>
-            <p class="card-text text-muted mb-4">Simulador interactivo</p>
-            <a :href="sim.enlace" target="_blank" class="btn btn-simulator mt-auto">
+            <p class="card-text text-muted mb-4">{{ sim.descripcion_del_simulador }}</p>
+            <a :href="sim.enlace" target="_blank" class="btn btn-simulator mt-auto btn-primary">
               Ejecutar
             </a>
           </div>

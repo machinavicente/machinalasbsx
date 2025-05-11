@@ -12,6 +12,13 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: '/assets/bootstrap/bootstrap.min.css' },
         { rel: 'stylesheet', href: '/assets/css/index.css' },
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css' }
+      ],
+      script: [
+        {
+          src: '/assets/bootstrap/bootstrap.bundle.min.js',
+          defer: true,
+          tagPosition: 'bodyClose' // Equivalente a body: true en Nuxt 2
+        }
       ]
     }
   },
